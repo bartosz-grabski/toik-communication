@@ -1,10 +1,14 @@
 package pl.edu.agh.toik.comm.impl;
 
+import org.apache.felix.ipojo.annotations.Component;
+import org.apache.felix.ipojo.annotations.Provides;
 import pl.edu.agh.toik.comm.CommunicationService;
 
 /**
  * Created by bartosz on 31/05/15.
  */
+@Component(propagation=true)
+@Provides
 public class CommunicationServiceImpl implements CommunicationService {
 
     @Override
