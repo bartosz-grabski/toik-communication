@@ -8,47 +8,57 @@
     <artifactId>toik-comm-service</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
+    
+    <parent>
+    	<groupId>pl.edu.agh.toik</groupId>
+    	<artifactId>toik-comm-parent</artifactId>
+    	<version>1.0-SNAPSHOT</version>
+    	<relativePath>../pom.xml</relativePath>
+    </parent>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.5.3</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-                    </instructions>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-ipojo-plugin</artifactId>
-                <version>1.12.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>ipojo-bundle</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+	<properties>
+        <bundle.import.package>*</bundle.import.package>
+        <!-- <bundle.private.package>org.apache.cxf.dosgi.samples.greeter.impl</bundle.private.package> -->
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.ipojo.annotations</artifactId>
-            <version>1.12.1</version>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+			<version>5.0.0</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.ipojo</artifactId>
-            <version>1.12.1</version>
+            <groupId>pl.edu.agh.toik</groupId>
+    		<artifactId>toik-comm-interface</artifactId>
+    		<version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
+    <build>
+    	<plugins>
+        	<plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+				<version>2.5.3</version>
+        		<extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Name>toik-comm-service</Bundle-Name>
+                        <Bundle-Description>communication service</Bundle-Description>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Activator>pl.edu.agh.toik.comm.impl.CommunicationServiceImpl</Bundle-Activator>
+                        <Import-Package>${bundle.import.package}</Import-Package>
+                        <!-- <Private-Package>${bundle.private.package}</Private-Package> -->
+                        <DynamicImport-Package>org.apache.cxf.dosgi.dsw.qos,org.apache.cxf</DynamicImport-Package>
+                    </instructions>
+                </configuration>
+         	</plugin>
+    	</plugins>
+    </build>
 
 </project>
