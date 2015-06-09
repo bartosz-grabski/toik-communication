@@ -1,4 +1,3 @@
-pl/edu/agh/toik/comm/CommunicationService.class
-pl/edu/agh/toik/comm/Receiver.class
-pl/edu/agh/toik/comm/CommunicationService$MessageType.class
+pl/edu/agh/toik/comm/impl/CommunicationServiceImpl$ClientThread.class
 pl/edu/agh/toik/comm/impl/CommunicationServiceImpl.class
+pl/edu/agh/toik/comm/impl/CommunicationServiceImpl$1.class

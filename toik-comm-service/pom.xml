@@ -8,13 +8,6 @@
     <artifactId>toik-comm-service</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    
-    <parent>
-    	<groupId>pl.edu.agh.toik</groupId>
-    	<artifactId>toik-comm-parent</artifactId>
-    	<version>1.0-SNAPSHOT</version>
-    	<relativePath>../pom.xml</relativePath>
-    </parent>
 
 	<properties>
         <bundle.import.package>*</bundle.import.package>

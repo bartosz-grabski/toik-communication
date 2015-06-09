@@ -6,4 +6,5 @@ package pl.edu.agh.toik.comm;
 public interface CommunicationClient {
 
     void receive(CommunicationService.MessageType type, String message);
+    String getId();
 }
